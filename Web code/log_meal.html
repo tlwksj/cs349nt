@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log Meal</title>
+</head>
+<body>
+    <h2>Log a Meal</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.food_name.label }} {{ form.food_name }}
+        {{ form.quantity.label }} {{ form.quantity }}
+        {{ form.meal_type.label }} {{ form.meal_type }}
+        {{ form.submit }}
+    </form>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

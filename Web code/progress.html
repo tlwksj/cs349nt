@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Progress</title>
+</head>
+<body>
+    <h1>This is the Progress Page</h1>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <section>
+        <h2>Your Logged Meals</h2>
+            {% if meals %}
+            <ul>
+                {% for meal in meals %}
+                    <li>
+                        {{ meal['quantity'] }} x {{ meal['food_name'] }} ({{ meal['meal_type'] }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No meals logged yet.</p>
+        {% endif %}
+    </section>
+    <section>
+        <h2>Your Goals</h2>
+        <p><strong>Current Weight:</strong> 180 lbs</p>
+
+        {% if target_weight and target_weeks %}
+            <p><strong>Target Weight:</strong> {{ target_weight }} lbs</p>
+            <p><strong>Target Weeks:</strong> {{ target_weeks }} weeks</p>
+        {% else %}
+            <p>There's no information. Please set your target weight and weeks in the <a href="{{ url_for('goals') }}">Goals section</a>.</p>
+        {% endif %}
+    </section>
+</body>
+</html>

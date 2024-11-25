@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Set Goals</title>
+</head>
+<body>
+    <h1>Set Your Training Goals</h1>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.target_weight.label }}<br>
+            {{ form.target_weight(size=20) }}
+        </p>
+        <p>
+            {{ form.weeks.label }}<br>
+            {{ form.weeks(size=20) }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+</body>
+</html>
